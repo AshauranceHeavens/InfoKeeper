@@ -56,11 +56,6 @@
         header("Location:../main.php?error=emptyfields");
         exit();
       }
-    //
-    // }else{
-    //   header("Location: ../main.php?newuser=".$NewRow);
-    //   exit();
-    // }
 
 
     }else{
