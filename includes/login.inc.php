@@ -14,7 +14,7 @@ if(isset($_POST['submit-login'])){
   }else{
     $sql = "SELECT * FROM names WHERE email =:email";
     $stmt = $pdo->prepare($sql);
-    $stmt->bindValue(':email', $email); /*CHECK THIS LINE AGAINST BOTH VIDEOS, IT MAY CAUSE ERRORS*/
+    $stmt->bindValue(':email', $email); 
     $stmt->execute();
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
@@ -29,7 +29,7 @@ if(isset($_POST['submit-login'])){
       $_SESSION['EMAIL'] = $row['email'];
       $_SESSION['NAME'] = $row['name'];
 
-      header("Location:../main.php?login=success");/*add info from the database*/
+      header("Location:../main.php?login=success");
       exit();
     }
     }
