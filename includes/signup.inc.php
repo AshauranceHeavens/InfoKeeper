@@ -36,13 +36,12 @@
      }else{
        $sql = "INSERT INTO names(email, name, passwordd) VALUES(:email, :name, :passwordd)";
        $stmt = $pdo->prepare($sql);
-       //$stmt = $pdo->bindValue(':email', $email) correct syntax
+      
        if(!$stmt){
          header("Location:../signup.php?error=sqlerror");
          exit();
        }else{
          $passwordHash = password_hash($password, PASSWORD_DEFAULT);
-      //doesnt seem to work  $stmt = $pdo->bindValue(':email', $email;':name', $username;':passwordd', $passwordHash); /*not syntax from video*/
          $stmt->bindValue(':email', $email);
          $stmt->bindValue(':name', $username);
          $stmt->bindValue(':passwordd', $passwordHash);
